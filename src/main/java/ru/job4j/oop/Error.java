@@ -18,7 +18,8 @@ public class Error {
     public void printInfo() {
         System.out.println("Ошибка активна: " + active);
         System.out.println("Код ошибки: " + status);
-        System.out.println("Сообщение пользователю: " + massage + "\n");
+        System.out.println("Сообщение пользователю: " + massage);
+        System.out.println();
     }
 
     public static void main(String[] args) {
