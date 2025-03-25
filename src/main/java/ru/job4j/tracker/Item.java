@@ -4,6 +4,15 @@ public class Item {
     private int id;
     private String name;
 
+    Item() {
+    }
+
+    Item(String name) {
+    }
+
+    Item(int id, String name) {
+    }
+
     public int getId() {
         return id;
     }
