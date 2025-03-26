@@ -27,4 +27,14 @@ public class TriangleTest {
         assertThat(result).isCloseTo(expected, offset(0.001));
     }
 
+    @Test
+    public void when00and06and80ThenMinus1() {
+        Point a = new Point(0, 0);
+        Point b = new Point(0, 6);
+        Point c = new Point(8, 0);
+        Triangle triangle = new Triangle(a, b, c);
+        double result = triangle.area();
+        double expected = 24;
+        assertThat(result).isCloseTo(expected, offset(0.001));
+    }
 }

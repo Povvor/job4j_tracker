@@ -13,12 +13,12 @@ public class Triangle {
         this.third = cp;
     }
 
-    public double semiPerimeter(double a, double b, double c) {
-        return (a + b + c) / 2;
+    public boolean exist(double ab, double ac, double bc) {
+        return (ab + bc > ac) && (ab + ac > bc) && (ac + bc > ab);
     }
 
-    public boolean exist(double ab, double ac, double bc) {
-       return (ab + bc > ac) && (ab + ac > bc) && (ac + bc > ab);
+    public double semiPerimeter(double a, double b, double c) {
+        return (a + b + c) / 2;
     }
 
     public double area() {
