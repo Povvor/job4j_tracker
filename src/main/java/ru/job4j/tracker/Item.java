@@ -34,7 +34,6 @@ public class Item {
                 + '}';
     }
 
-
     public int getId() {
         return id;
     }
