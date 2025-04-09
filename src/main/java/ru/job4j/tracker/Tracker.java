@@ -46,6 +46,7 @@ public class Tracker {
     public boolean replace(int id, Item item) {
         int target = indexOf(id);
         if (target == -1) {
+            System.out.println("Данного id не существует!");
             return false;
         } else {
             items[target] = item;
@@ -74,7 +75,10 @@ public class Tracker {
             System.arraycopy(items, index + 1, items, index, length);
             items[size - 1] = null;
             size--;
+        } else {
+            System.out.println("Данного id не существует!");
         }
+
     }
 }
 
