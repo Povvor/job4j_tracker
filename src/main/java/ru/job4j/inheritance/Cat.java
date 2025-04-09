@@ -10,5 +10,4 @@ public class Cat extends Animal {
         System.out.println("Вызов статического метода Cat");
     }
 
-
 }
