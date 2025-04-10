@@ -14,17 +14,7 @@ public class Tracker {
     }
 
     public Item[] findAll() {
-        int localSize = 0;
-        Item[] result = new Item[items.length];
-        for (int i = 0; i < items.length; i++) {
-            if (items[i] != null) {
-                result[localSize] = items[i];
-                System.out.println(i);
-                localSize++;
-            }
-        }
-        result = Arrays.copyOf(result, localSize);
-        return result;
+        return  Arrays.copyOf(items, size);
     }
 
     private int indexOf(int id) {
@@ -54,10 +44,10 @@ public class Tracker {
     }
 
     public Item[] findByName(String key) {
-        Item[] result = new Item[items.length];
+        Item[] result = new Item[size];
         int localSize = 0;
-        for (int i = 0; i < items.length; i++) {
-            if (items[i] != null && items[i].getName().equals(key)) {
+        for (int i = 0; i < size; i++) {
+            if (items[i].getName().equals(key)) {
                 result[localSize] = items[i];
                 localSize++;
             }
@@ -76,7 +66,6 @@ public class Tracker {
         } else {
             System.out.println("Данного id не существует!");
         }
-
     }
 }
 
