@@ -45,14 +45,12 @@ public class Tracker {
 
     public boolean replace(int id, Item item) {
         int target = indexOf(id);
-        if (target == -1) {
-            System.out.println("Данного id не существует!");
-            return false;
-        } else {
+        if (target != -1) {
             items[target] = item;
             items[target].setId(id);
             return true;
         }
+        return false;
     }
 
     public Item[] findByName(String key) {
