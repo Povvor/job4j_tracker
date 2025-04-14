@@ -17,6 +17,7 @@ public class StartUI {
                 Item item = new Item(name);
                 tracker.add(item);
                 System.out.println("Добавленная заявка: " + item);
+                System.out.println();
 
             } else if (select == 1) {
                 System.out.println("=== Вывод всех заявок ===");
@@ -28,6 +29,7 @@ public class StartUI {
                 } else {
                     System.out.println("Хранилище еще не содержит заявок ");
                 }
+                System.out.println();
 
             } else if (select == 2) {
                 System.out.println("=== Редактирование заявки ===");
@@ -41,6 +43,7 @@ public class StartUI {
                 } else {
                     System.out.println("Ошибка изменения заявки");
                 }
+                System.out.println();
 
             } else if (select == 3) {
                 System.out.println("=== Удаление заявки ===");
@@ -49,6 +52,19 @@ public class StartUI {
                 Item item = tracker.findById(id);
                 tracker.delete(id);
                 System.out.println(item != null ? "Заявка удалена успешно." : "Ошибка удаления заявки.");
+                System.out.println();
+
+            } else if (select == 4) {
+                System.out.println("=== Отображение заявки по id ===");
+                System.out.println("Введите id: ");
+                int id = Integer.parseInt(scanner.nextLine());
+                Item item = tracker.findById(id);
+                if (item != null) {
+                    System.out.println(item);
+                } else {
+                    System.out.println("Заявка с введенным id: " + id + " не найдена.");
+                }
+                System.out.println();
 
             } else {
                 run = false;
@@ -66,6 +82,7 @@ public class StartUI {
             for (int i = 0; i < menu.length; i++) {
                 System.out.println(i + "." + menu[i]);
             }
+            System.out.println();
         }
 
         public static void main(String[]args) {
