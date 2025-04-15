@@ -56,7 +56,7 @@ public class StartUI {
 
             } else if (select == 4) {
                 System.out.println("=== Отображение заявки по id ===");
-                System.out.println("Введите id: ");
+                System.out.print("Введите id: ");
                 int id = Integer.parseInt(scanner.nextLine());
                 Item item = tracker.findById(id);
                 if (item != null) {
@@ -68,7 +68,7 @@ public class StartUI {
 
             } else if (select == 5) {
                 System.out.println("=== Отображение заявок по имени ===");
-                System.out.println("Введите имя: ");
+                System.out.print("Введите имя: ");
                 String name = scanner.nextLine();
                 Item[] items = tracker.findByName(name);
                 if (items.length > 0) {
