@@ -28,7 +28,7 @@ public class StartUI {
         }
     }
 
-    private static void showItems(Tracker tracker) {
+    public static void showItems(Tracker tracker) {
         System.out.println("=== Вывод всех заявок ===");
         Item[] items = tracker.findAll();
         if (items.length > 0) {
@@ -41,7 +41,7 @@ public class StartUI {
         System.out.println();
     }
 
-    private static void findByName(Input input, Tracker tracker) {
+    public static void findByName(Input input, Tracker tracker) {
         System.out.println("=== Отображение заявок по имени ===");
         String name = input.askStr("Введите имя: ");
         Item[] items = tracker.findByName(name);
@@ -55,7 +55,7 @@ public class StartUI {
         System.out.println();
     }
 
-    private static void findID(Input input, Tracker tracker) {
+    public static void findID(Input input, Tracker tracker) {
         System.out.println("=== Отображение заявки по id ===");
         int id = Integer.parseInt(input.askStr("Введите id: "));
         Item item = tracker.findById(id);
@@ -67,7 +67,7 @@ public class StartUI {
         System.out.println();
     }
 
-    private static void deleteItem(Input input, Tracker tracker) {
+    public static void deleteItem(Input input, Tracker tracker) {
         System.out.println("=== Удаление заявки ===");
         int id = Integer.parseInt(input.askStr("Введите id: "));
         Item item = tracker.findById(id);
@@ -76,7 +76,7 @@ public class StartUI {
         System.out.println();
     }
 
-    private static void findItem(Input input, Tracker tracker) {
+    public static void findItem(Input input, Tracker tracker) {
         System.out.println("=== Редактирование заявки ===");
         int id = Integer.parseInt(input.askStr("Введите id: "));
         String name = input.askStr("Введите имя: ");
@@ -89,7 +89,7 @@ public class StartUI {
         System.out.println();
     }
 
-    private static void createItem(Input input, Tracker tracker) {
+    public static void createItem(Input input, Tracker tracker) {
         System.out.println("=== Создание новой заявки ===");
         String name = input.askStr("Введите имя: ");
         Item item = new Item(name);
@@ -116,4 +116,4 @@ public class StartUI {
         Tracker tracker = new Tracker();
         new StartUI().init(input, tracker);
     }
-    }
+}
