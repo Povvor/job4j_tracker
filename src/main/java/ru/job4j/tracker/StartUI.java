@@ -12,7 +12,7 @@ public class StartUI {
             } else if (select == 1) {
                 showItems(tracker);
             } else if (select == 2) {
-                findItem(input, tracker);
+                replaceItem(input, tracker);
             } else if (select == 3) {
                 deleteItem(input, tracker);
             } else if (select == 4) {
@@ -76,7 +76,7 @@ public class StartUI {
         System.out.println();
     }
 
-    public static void findItem(Input input, Tracker tracker) {
+    public static void replaceItem(Input input, Tracker tracker) {
         System.out.println("=== Редактирование заявки ===");
         int id = Integer.parseInt(input.askStr("Введите id: "));
         String name = input.askStr("Введите имя: ");
