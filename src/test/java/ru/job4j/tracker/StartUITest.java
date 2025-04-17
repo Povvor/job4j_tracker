@@ -34,11 +34,12 @@ class StartUITest {
         Tracker tracker = new Tracker();
         Item item = new Item("Подлежит удаленю");
         tracker.add(item);
+        int id = (item.getId());
         String[] answers = {
-                String.valueOf(item.getId())
+                String.valueOf(id)
         };
         StartUI.deleteItem(new MockInput(answers), tracker);
-        Item[] edited = tracker.findAll();
-        assertThat(edited == null);
+        Item edited = tracker.findById(id);
+        assertThat(edited).isNull();
     }
 }
