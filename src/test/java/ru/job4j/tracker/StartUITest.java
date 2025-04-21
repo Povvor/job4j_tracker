@@ -79,6 +79,7 @@ class StartUITest {
                         + "=== Завершение программы ===" + ln
         );
     }
+
     @Test
     void whenFindAllActionTest() {
         Output output = new StubOutput();
@@ -160,7 +161,4 @@ class StartUITest {
                         + "=== Завершение программы ===" + ln
         );
     }
-
-
-
 }
