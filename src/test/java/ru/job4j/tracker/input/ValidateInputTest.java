@@ -48,7 +48,7 @@ class ValidateInputTest {
     void whenNegativeInput() {
         Output output = new StubOutput();
         Input in = new MockInput(
-                new String[] {"-2",}
+                new String[] {"-2"}
         );
         ValidateInput input = new ValidateInput(output, in);
 
