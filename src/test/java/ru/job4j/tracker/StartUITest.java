@@ -41,7 +41,7 @@ class StartUITest {
         List<UserAction> actions = new ArrayList<>(List.of(
                 new ReplaceAction(output),
                 new ExitAction(output)
-        )) ;
+        ));
         new StartUI(output).init(input, tracker, actions);
         assertThat(tracker.findById(item.getId()).getName()).isEqualTo(replacedName);
     }
@@ -131,8 +131,6 @@ class StartUITest {
                 new FindByNameAction(output),
                 new ExitAction(output)
         ));
-
-
         new StartUI(output).init(input, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(output.toString()).isEqualTo(
