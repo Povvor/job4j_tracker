@@ -34,21 +34,14 @@ public class AnalyzeByMap {
     public static List<Label> averageScoreBySubject(List<Pupil> pupils) {
         LinkedHashMap<String, Integer> scoreList = new LinkedHashMap<>();
         List<Label> result = new ArrayList<>();
-        int score = 0;
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                if (!scoreList.containsKey(subject.name())) {
-                    score = subject.score();
-                    scoreList.put(subject.name(), score);
-                } else {
-                    score = scoreList.get(subject.name());
-                    scoreList.put(subject.name(), score + subject.score());
-                }
+                scoreList.put(subject.name(), scoreList.getOrDefault(subject.name(), 0) + subject.score());
             }
         }
         for (String subject : scoreList.keySet()) {
-            int avarege = scoreList.get(subject) / pupils.size();
-            Label label = new Label(subject, avarege);
+            int average = scoreList.get(subject) / pupils.size();
+            Label label = new Label(subject, average);
             result.add(label);
         }
         return result;
@@ -57,13 +50,10 @@ public class AnalyzeByMap {
 
     public static Label bestStudent(List<Pupil> pupils) {
         LinkedList<Label> result = new LinkedList<>();
-        float subjectCount;
         float totalScore;
         for (Pupil pupil : pupils) {
-            subjectCount = 0;
             totalScore = 0;
             for (Subject subject : pupil.subjects()) {
-                subjectCount++;
                 totalScore += subject.score();
             }
             result.add(new Label(pupil.name(), totalScore));
@@ -75,7 +65,7 @@ public class AnalyzeByMap {
     public static Label bestSubject(List<Pupil> pupils) {
         LinkedHashMap<String, Integer> scoreList = new LinkedHashMap<>();
         LinkedList<Label> result = new LinkedList<>();
-        int score = 0;
+        int score;
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
                 if (!scoreList.containsKey(subject.name())) {
