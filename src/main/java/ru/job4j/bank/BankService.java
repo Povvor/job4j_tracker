@@ -2,10 +2,10 @@ package ru.job4j.bank;
 import java.util.*;
 
 public class BankService {
-    private final Map<User, HashSet<Account>> users = new HashMap<>();
+    private final Map<User, List<Account>> users = new HashMap<>();
 
     public void addUser(User user) {
-        HashSet<Account> accounts = new HashSet<>();
+        List<Account> accounts = new ArrayList<>();
         users.putIfAbsent(user, accounts);
     }
 
@@ -17,7 +17,10 @@ public class BankService {
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
         if (user != null) {
-            users.get(user).add(account);
+            List<Account> accounts = users.get(user);
+            if (!accounts.contains(account)) {
+                accounts.add(account);
+            }
         }
     }
 
@@ -63,7 +66,7 @@ public class BankService {
         return result;
     }
 
-    public HashSet<Account> getAccounts(User user) {
+    public List<Account> getAccounts(User user) {
         return users.get(user);
     }
 }
