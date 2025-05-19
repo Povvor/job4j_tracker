@@ -9,12 +9,13 @@ public class JobSorter {
         List<Job> jobs = Arrays.asList(
                 new Job("Fix bugs", 4),
                 new Job("Impl task", 2),
-                new Job("Reboot server", 1)
+                new Job("Reboot server", 1),
+                new Job("Take a dinner", 6)
         );
         System.out.println(jobs);
         Collections.sort(jobs);
         System.out.println(jobs);
-        Collections.sort(jobs, new SortByNameJob());
+        Collections.sort(jobs, new JobAscByName());
         System.out.println(jobs);
     }
 }
