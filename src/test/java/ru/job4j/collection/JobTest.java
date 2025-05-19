@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 class JobTest {
 
     @Test
-    void JobAscByNameTest() {
+    void jobAscByNameTest() {
         List<Job> jobs = Arrays.asList(
                 new Job("Fix bugs", 4),
                 new Job("Impl task", 2),
@@ -28,7 +28,7 @@ class JobTest {
     }
 
     @Test
-    void JobDescByNameTest() {
+    void jobDescByNameTest() {
         List<Job> jobs = Arrays.asList(
                 new Job("Fix bugs", 4),
                 new Job("Impl task", 2),
@@ -47,7 +47,7 @@ class JobTest {
     }
 
     @Test
-    void JobAscByPriorityTest() {
+    void jobAscByPriorityTest() {
         List<Job> jobs = Arrays.asList(
                 new Job("Fix bugs", 4),
                 new Job("Impl task", 2),
@@ -66,7 +66,7 @@ class JobTest {
     }
 
     @Test
-    void JobDescByPriorityTest() {
+    void jobDescByPriorityTest() {
         List<Job> jobs = Arrays.asList(
                 new Job("Fix bugs", 4),
                 new Job("Impl task", 2),
@@ -84,8 +84,6 @@ class JobTest {
         assertThat(jobs).isEqualTo(expected);
     }
 
-
-
     @Test
     public void whenComparatorByDescNameAndDescPriority() {
         Comparator<Job> cmpNamePriority = new JobDescByName().thenComparing(new JobDescByPriority());
@@ -95,6 +93,7 @@ class JobTest {
         );
         assertThat(rsl).isLessThan(0);
     }
+
     @Test
     public void whenComparatorByDescNameAndDescPriority2() {
         Comparator<Job> cmpNamePriority = new JobDescByName().thenComparing(new JobDescByPriority());
@@ -114,6 +113,7 @@ class JobTest {
         );
         assertThat(rsl).isLessThan(0);
     }
+
     @Test
     public void whenComparatorByDescNameAndAscPriority2() {
         Comparator<Job> cmpNamePriority = new JobDescByName().thenComparing(new JobAscByPriority());
@@ -133,6 +133,7 @@ class JobTest {
         );
         assertThat(rsl).isGreaterThan(0);
     }
+
     @Test
     public void whenComparatorByAscNameAndDescPriority2() {
         Comparator<Job> cmpNamePriority = new JobAscByName().thenComparing(new JobDescByPriority());
@@ -152,6 +153,7 @@ class JobTest {
         );
         assertThat(rsl).isGreaterThan(0);
     }
+
     @Test
     public void whenComparatorByAscNameAndAscPriority2() {
         Comparator<Job> cmpNamePriority = new JobAscByName().thenComparing(new JobAscByPriority());
@@ -161,6 +163,5 @@ class JobTest {
         );
         assertThat(rsl).isLessThan(0);
     }
-
 
 }
