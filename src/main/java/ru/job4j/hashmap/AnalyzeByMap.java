@@ -1,6 +1,7 @@
 package ru.job4j.hashmap;
 
 import java.util.*;
+import java.util.function.BiFunction;
 
 public class AnalyzeByMap {
     public static double averageScore(List<Pupil> pupils) {
@@ -32,11 +33,12 @@ public class AnalyzeByMap {
     }
 
     public static List<Label> averageScoreBySubject(List<Pupil> pupils) {
+        BiFunction<Integer, Integer, Integer> function = Integer::sum;
         LinkedHashMap<String, Integer> scoreList = new LinkedHashMap<>();
         List<Label> result = new ArrayList<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                scoreList.put(subject.name(), scoreList.getOrDefault(subject.name(), 0) + subject.score());
+                scoreList.merge(subject.name(), subject.score(), (function));
             }
         }
         for (String subject : scoreList.keySet()) {
@@ -63,18 +65,12 @@ public class AnalyzeByMap {
     }
 
     public static Label bestSubject(List<Pupil> pupils) {
+        BiFunction<Integer, Integer, Integer> function = Integer::sum;
         LinkedHashMap<String, Integer> scoreList = new LinkedHashMap<>();
         LinkedList<Label> result = new LinkedList<>();
-        int score;
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                if (!scoreList.containsKey(subject.name())) {
-                    score = subject.score();
-                    scoreList.put(subject.name(), score);
-                } else {
-                    score = scoreList.get(subject.name());
-                    scoreList.put(subject.name(), score + subject.score());
-                }
+                scoreList.merge(subject.name(), subject.score(), (function));
             }
         }
         for (String subject : scoreList.keySet()) {
