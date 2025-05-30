@@ -16,4 +16,5 @@ public class Profiles {
         return profiles.stream().map(Profile::getAddress)
                 .sorted(comparatorCity).distinct().collect(Collectors.toList());
     }
+
 }
