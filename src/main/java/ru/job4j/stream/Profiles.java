@@ -12,9 +12,11 @@ public class Profiles {
     }
 
     public static List<Address> collectSortWithoutDuplicate(List<Profile> profiles) {
-        Comparator<Address> comparatorCity = Comparator.comparing(Address::getCity);
-        return profiles.stream().map(Profile::getAddress)
-                .sorted(comparatorCity).distinct().collect(Collectors.toList());
+        return profiles.stream()
+                .map(Profile::getAddress)
+                .sorted(Comparator.comparing(Address::getCity))
+                .distinct()
+                .collect(Collectors.toList());
     }
 
 }
